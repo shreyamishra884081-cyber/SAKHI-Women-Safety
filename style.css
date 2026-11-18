@@ -115,3 +115,56 @@ footer {
         margin: 12px auto;
     }
 }
+
+/* Premium SAKHI improvements */
+
+header {
+    padding: 30px 20px;
+    box-shadow: 0 3px 15px rgba(100, 70, 150, 0.15);
+}
+
+header h2 {
+    font-size: 36px;
+    letter-spacing: 1px;
+}
+
+.hero {
+    padding: 100px 20px;
+    min-height: 380px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    font-weight: 800;
+}
+
+section {
+    padding: 65px 20px;
+}
+
+.card {
+    border: 1px solid #e8defa;
+    border-radius: 22px;
+    box-shadow: 0 8px 25px rgba(120, 90, 170, 0.15);
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(120, 90, 170, 0.25);
+}
+
+button {
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(120, 90, 170, 0.2);
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+footer {
+    padding: 28px;
+}
