@@ -1,28 +1,40 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+function callEmergency() {
+    const confirmCall = confirm(
+        "Do you want to call emergency number 112?"
+    );
+
+    if (confirmCall) {
+        window.location.href = "tel:112";
+    }
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background: #fff5fa;
-    color: #30213d;
-    text-align: center;
-}
+function shareLocation() {
+    if (!navigator.geolocation) {
+        alert("Location is not supported by your browser.");
+        return;
+    }
 
-h1 {
-    font-size: 55px;
-    color: #a83270;
-    margin-top: 80px;
-}
+    navigator.geolocation.getCurrentPosition(
+        function(position) {
+            const lat = position.coords.latitude;
+            const lon = position.coords.longitude;
 
-h2 {
-    color: #713b91;
-    margin: 20px;
-}
+            const link =
+                `https://www.google.com/maps?q=${lat},${lon}`;
 
-p {
-    font-size: 18px;
-    margin: 20px;
+            if (navigator.share) {
+                navigator.share({
+                    title: "My Current Location",
+                    text: "Please check my location.",
+                    url: link
+                });
+            } else {
+                navigator.clipboard.writeText(link);
+                alert("Location link copied!");
+            }
+        },
+        function() {
+            alert("Please allow location access.");
+        }
+    );
 }
