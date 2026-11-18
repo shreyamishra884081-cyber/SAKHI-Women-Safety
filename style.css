@@ -168,3 +168,25 @@ button:hover {
 footer {
     padding: 28px;
 }
+
+/* HOME PAGE HERO IMAGE */
+
+.home-image {
+    width: 100%;
+    max-width: 430px;
+    margin-bottom: 25px;
+}
+
+.home-image img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 22px;
+    box-shadow: 0 8px 25px rgba(100, 40, 90, 0.15);
+}
+
+@media(max-width: 600px) {
+    .home-image img {
+        height: 220px;
+    }
+}
