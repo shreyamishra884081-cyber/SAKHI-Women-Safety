@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Safety | SAKHI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo">🌸 SAKHI</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="emergency.html">Emergency Help</a>
+        <a href="mysafety.html">My Safety</a>
+        <a href="safety-guide.html">Safety Guide</a>
+        <a href="about.html">About SAKHI</a>
+    </nav>
+</header>
+
+<section class="helpline-section">
+    <div class="helpline-header">
+        <span>YOUR PERSONAL SAFETY SPACE</span>
+        <h2>My Safety</h2>
+        <p>Simple tools to help you stay prepared and connected.</p>
+    </div>
+
+    <div class="helpline-container">
+
+        <div class="helpline-card">
+            <div class="helpline-icon">🆘</div>
+            <h3>Emergency SOS</h3>
+            <p>Quickly contact emergency services when you need immediate help.</p>
+            <a href="tel:112">Call 112</a>
+        </div>
+
+        <div class="helpline-card">
+            <div class="helpline-icon">📍</div>
+            <h3>Share My Location</h3>
+            <p>Share your current location with someone you trust.</p>
+            <button class="home-btn" onclick="shareLocation()">Share Location</button>
+        </div>
+
+        <div class="helpline-card">
+            <div class="helpline-icon">❤️</div>
+            <h3>Trusted Contacts</h3>
+            <p>Keep important people ready to contact.</p>
+            <input type="text" id="contactName" placeholder="Contact name">
+            <input type="tel" id="contactNumber" placeholder="Phone number">
+            <button class="home-btn" onclick="saveContact()">Save Contact</button>
+            <div id="contactList"></div>
+        </div>
+
+        <div class="helpline-card">
+            <div class="helpline-icon">🚶‍♀️</div>
+            <h3>Safe Travel</h3>
+            <p>Plan your journey and share your route with trusted people.</p>
+            <a href="https://www.google.com/maps" target="_blank" rel="noopener">Open Maps</a>
+        </div>
+
+    </div>
+</section>
+
+<script>
+function shareLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            function(position) {
+                const lat = position.coords.latitude;
+                const lon = position.coords.longitude;
+                const link = "https://www.google.com/maps?q=" + lat + "," + lon;
+
+                if (navigator.share) {
+                    navigator.share({
+                        title: "My Current Location",
+                        text: "Here is my current location:",
+                        url: link
+                    });
+                } else {
+                    window.open(link, "_blank");
+                }
+            },
+            function() {
+                alert("Location permission denied or unavailable.");
+            }
+        );
+    } else {
+        alert("Geolocation is not supported.");
+    }
+}
+
+function saveContact() {
+    const name = document.getElementById("contactName").value.trim();
+    const number = document.getElementById("contactNumber").value.trim();
+
+    if (!name || !/^[0-9]{10}$/.test(number)) {
+        alert("Enter a name and valid 10-digit phone number.");
+        return;
+    }
+
+    const contact = document.createElement("div");
+    contact.textContent = name + " - " + number + " ";
+
+    const call = document.createElement("a");
+    call.href = "tel:" + number;
+    call.textContent = "Call";
+
+    contact.appendChild(call);
+    document.getElementById("contactList").appendChild(contact);
+
+    document.getElementById("contactName").value = "";
+    document.getElementById("contactNumber").value = "";
+}
+</script>
+
+</body>
+</html>
