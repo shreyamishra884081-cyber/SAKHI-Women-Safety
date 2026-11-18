@@ -7,7 +7,6 @@ function callEmergency() {
         window.location.href = "tel:112";
     }
 }
-
 function shareLocation() {
     if (!navigator.geolocation) {
         alert("Location is not supported by your browser.");
