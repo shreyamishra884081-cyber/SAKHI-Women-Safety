@@ -219,3 +219,105 @@ function findNearbyHospital() {
 }
 
 /* ===== END HELPLINE CSS ===== */
+
+/* SAKHI NAVIGATION AND HOME */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 6%;
+    background: white;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.06);
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.logo {
+    font-size: 27px;
+    font-weight: bold;
+    color: #873c79;
+}
+
+.navbar nav {
+    display: flex;
+    gap: 22px;
+    flex-wrap: wrap;
+}
+
+.navbar nav a {
+    text-decoration: none;
+    color: #583c59;
+    font-weight: 600;
+}
+
+.navbar nav a:hover {
+    color: #c04486;
+}
+
+.home-section {
+    min-height: 65vh;
+    display: flex;
+    align-items: center;
+    padding: 50px 10%;
+    background: linear-gradient(120deg, #fff0f7, #eee5ff);
+}
+
+.home-content {
+    max-width: 700px;
+}
+
+.home-tag {
+    color: #b04489;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.home-content h1 {
+    font-size: 48px;
+    color: #702c64;
+}
+
+.home-content p {
+    color: #66566b;
+    line-height: 1.8;
+    font-size: 17px;
+}
+
+.home-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 25px;
+}
+
+.home-btn {
+    background: #873c79;
+    color: white;
+    padding: 14px 22px;
+    border-radius: 9px;
+    text-decoration: none;
+}
+
+.home-btn.secondary {
+    background: white;
+    color: #873c79;
+    border: 1px solid #873c79;
+}
+
+@media(max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+    }
+
+    .navbar nav {
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .home-content h1 {
+        font-size: 34px;
+    }
+}
+
+/* END NAVIGATION AND HOME */
