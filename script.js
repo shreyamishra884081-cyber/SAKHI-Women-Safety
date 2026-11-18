@@ -39,3 +39,25 @@ function shareLocation() {
         }
     );
 }
+
+function findNearbyPolice() {
+    if (!navigator.geolocation) {
+        alert("Location is not supported by your browser.");
+        return;
+    }
+
+    navigator.geolocation.getCurrentPosition(
+        function(position) {
+            const lat = position.coords.latitude;
+            const lon = position.coords.longitude;
+
+            const mapsLink =
+                `https://www.google.com/maps/search/police+station/@${lat},${lon},14z`;
+
+            window.open(mapsLink, "_blank");
+        },
+        function() {
+            alert("Please allow location access to find nearby police stations.");
+        }
+    );
+}
