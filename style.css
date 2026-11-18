@@ -1,39 +1,118 @@
-function callEmergency() {
-    const confirmCall = confirm(
-        "Do you want to call emergency number 112?"
-    );
 
-    if (confirmCall) {
-        window.location.href = "tel:112";
-    }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-function shareLocation() {
-    if (!navigator.geolocation) {
-        alert("Location is not supported by your browser.");
-        return;
+
+body {
+    font-family: Arial, sans-serif;
+    background: #faf8ff;
+    color: #332b46;
+    line-height: 1.7;
+}
+
+header {
+    background: linear-gradient(135deg, #c9b6f2, #a991dc);
+    color: white;
+    text-align: center;
+    padding: 25px;
+}
+
+header h2 {
+    font-size: 32px;
+}
+
+.hero {
+    text-align: center;
+    padding: 75px 20px;
+    background: linear-gradient(135deg, #eee8ff, #f9f5ff);
+}
+
+.hero h1 {
+    font-size: 42px;
+    color: #7052a3;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    max-width: 650px;
+    margin: 0 auto 25px;
+}
+
+button {
+    background: #8d70c4;
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    margin: 10px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+button:hover {
+    background: #6d50a5;
+}
+
+section {
+    padding: 45px 20px;
+    text-align: center;
+}
+
+section h2 {
+    color: #7052a3;
+    margin-bottom: 25px;
+}
+
+.card {
+    display: inline-block;
+    vertical-align: top;
+    background: white;
+    width: 260px;
+    padding: 28px;
+    margin: 12px;
+    border-radius: 18px;
+    box-shadow: 0 5px 20px rgba(120, 90, 170, 0.12);
+}
+
+.card h3 {
+    color: #8063b2;
+    margin-bottom: 12px;
+}
+
+.card a {
+    color: #7052a3;
+    font-weight: bold;
+}
+
+.about {
+    background: #eee8ff;
+}
+
+.about p {
+    max-width: 700px;
+    margin: auto;
+}
+
+footer {
+    background: #8063b2;
+    color: white;
+    text-align: center;
+    padding: 22px;
+}
+
+@media (max-width: 600px) {
+    .hero h1 {
+        font-size: 30px;
     }
 
-    navigator.geolocation.getCurrentPosition(
-        function(position) {
-            const lat = position.coords.latitude;
-            const lon = position.coords.longitude;
+    .card {
+        width: 90%;
+    }
 
-            const link =
-                `https://www.google.com/maps?q=${lat},${lon}`;
-
-            if (navigator.share) {
-                navigator.share({
-                    title: "My Current Location",
-                    text: "Please check my location.",
-                    url: link
-                });
-            } else {
-                navigator.clipboard.writeText(link);
-                alert("Location link copied!");
-            }
-        },
-        function() {
-            alert("Please allow location access.");
-        }
-    );
+    button {
+        display: block;
+        margin: 12px auto;
+    }
 }
